@@ -4,70 +4,103 @@ import navLinks from '../config/navLinks'
 import Source from '../components/Souce'
 
 
-const Top = () => (
+
+const TopHeader = () => (
   <div className="h-14 border-b border-neutral-200 flex items-center px-6 gap-4">
-    <div className="h-6 w-48 bg-neutral-200 rounded"></div>
+    <div className="h-6 w-40 bg-neutral-200 rounded"></div>
     <div className="flex-1"></div>
-    <div className="flex -space-x-2">
-      <div className="h-8 w-8 bg-neutral-300 rounded-full border-2 border-white"></div>
-      <div className="h-8 w-8 bg-neutral-300 rounded-full border-2 border-white"></div>
-      <div className="h-8 w-8 bg-neutral-300 rounded-full border-2 border-white"></div>
-      <div className="h-8 w-8 bg-neutral-300 rounded-full border-2 border-white"></div>
-    </div>
-    <div className="h-8 w-24 bg-neutral-100 rounded"></div>
+    <div className="h-8 w-32 bg-neutral-100 rounded"></div>
+    <div className="h-8 w-24 bg-neutral-900 rounded"></div>
   </div>
 );
 
 
-const Card = () => (
-  <div className="bg-white rounded-lg p-3 shadow-sm flex flex-col gap-2">
-    <div className="h-4 w-full bg-neutral-200 rounded"></div>
-    <div className="h-4 w-3/4 bg-neutral-100 rounded"></div>
-    <div className="flex justify-between items-center mt-2">
-      <div className="flex gap-1">
-        <div className="h-5 w-12 bg-neutral-200 rounded"></div>
-      </div>
-      <div className="h-6 w-6 bg-neutral-200 rounded-full"></div>
+const FilterBar = () => (
+  <div className="h-12 border-b border-neutral-200 flex items-center px-6 gap-2">
+    <div className="h-7 w-28 bg-neutral-100 rounded-full"></div>
+    <div className="h-7 w-28 bg-neutral-100 rounded-full"></div>
+    <div className="h-7 w-28 bg-neutral-100 rounded-full"></div>
+    <div className="flex-1"></div>
+    <div className="h-7 w-48 bg-neutral-100 rounded"></div>
+  </div>
+);
+
+
+const TableHeader = () => (
+  <div className="h-10 bg-neutral-100 border-b border-neutral-200 flex items-center px-4 sticky top-0">
+    <div className="w-12 h-5 bg-neutral-200 rounded"></div>
+    <div className="w-48 h-5 bg-neutral-200 rounded ml-4"></div>
+    <div className="w-40 h-5 bg-neutral-200 rounded ml-4"></div>
+    <div className="w-32 h-5 bg-neutral-200 rounded ml-4"></div>
+    <div className="w-32 h-5 bg-neutral-200 rounded ml-4"></div>
+    <div className="w-24 h-5 bg-neutral-200 rounded ml-4"></div>
+    <div className="flex-1"></div>
+    <div className="w-20 h-5 bg-neutral-200 rounded"></div>
+  </div>
+);
+
+
+const TableRow = () => (
+  <div className="h-14 border-b border-neutral-100 flex items-center px-4 hover:bg-neutral-50">
+    <div className="w-12 h-5 bg-neutral-200 rounded"></div>
+    <div className="w-48 h-5 bg-neutral-100 rounded ml-4"></div>
+    <div className="w-40 h-5 bg-neutral-100 rounded ml-4"></div>
+    <div className="w-32 h-5 bg-neutral-100 rounded ml-4"></div>
+    <div className="w-32 h-5 bg-neutral-100 rounded ml-4"></div>
+    <div className="w-24 h-5 bg-neutral-200 rounded ml-4"></div>
+    <div className="flex-1"></div>
+    <div className="w-20 flex gap-2">
+      <div className="h-6 w-6 bg-neutral-200 rounded"></div>
+      <div className="h-6 w-6 bg-neutral-200 rounded"></div>
     </div>
   </div>
 );
 
 
-const Column = ({ cardCount = 3 }) => (
-  <div className="w-72 shrink-0 bg-neutral-200 rounded-xl p-3 flex flex-col">
-    <div className="flex items-center justify-between mb-3">
-      <div className="h-5 w-24 bg-neutral-400 rounded"></div>
-      <div className="h-5 w-6 bg-neutral-400 rounded"></div>
+const Pagination = () => (
+  <div className="h-12 border-t border-neutral-200 flex items-center justify-between px-6">
+    <div className="h-5 w-32 bg-neutral-200 rounded"></div>
+    <div className="flex gap-2">
+      <div className="h-8 w-8 bg-neutral-100 rounded"></div>
+      <div className="h-8 w-8 bg-neutral-200 rounded"></div>
+      <div className="h-8 w-8 bg-neutral-100 rounded"></div>
+      <div className="h-8 w-8 bg-neutral-100 rounded"></div>
+      <div className="h-8 w-8 bg-neutral-100 rounded"></div>
     </div>
-    <div className="flex-1 flex flex-col gap-2">
-      {Array.from({ length: cardCount }).map((_, i) => (
-        <Card key={i} />
-      ))}
-    </div>
-    <div className="h-8 w-full bg-neutral-300 rounded mt-2"></div>
   </div>
 );
 
 
-const Board = () => (
-  <div className="flex-1 p-6 flex gap-4 overflow-x-auto bg-neutral-100">
-    <Column cardCount={3} />
-    <Column cardCount={4} />
-    <Column cardCount={2} />
-    <Column cardCount={3} />
-    <Column cardCount={3} />
+const TableBody = () => (
+  <div className="flex-1 overflow-auto">
+    <div className="min-w-full">
+      <TableHeader />
+      <TableRow />
+      <TableRow />
+      <TableRow />
+      <TableRow />
+      <TableRow />
+      <TableRow />
+      <TableRow />
+      <TableRow />
+      <TableRow />
+      <TableRow />
+    </div>
   </div>
 );
 
 
-const KanbanLayout = () => (
+const TableLayout = () => (
   <div className="flex-1 overflow-hidden">
     <div className="flex flex-col h-full">
-      <Top />
-      <Board />
+      <TopHeader />
+      <FilterBar />
+      <TableBody />
+      <Pagination />
     </div>
   </div>
 );
+
 
 
 function Data_Table() {
@@ -75,9 +108,9 @@ function Data_Table() {
   return (
 
     <div className='flex flex-col h-screen overflow-hidden'>
-        <Header par={navLinks[7].name}/>
-        <Source source={navLinks[7].source}/>
-        <KanbanLayout />
+        <Header par={navLinks[6].name}/>
+        <Source source={navLinks[6].source}/>
+        <TableLayout />
     </div>
   )
 }

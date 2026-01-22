@@ -72,8 +72,8 @@ function Kanban_Board() {
   return (
 
     <div className='flex flex-col h-screen overflow-hidden'>
-        <Header par={navLinks[0].name}/>
-        <Source source={navLinks[0].source}/>
+        <Header par={navLinks[7].name}/>
+        <Source source={navLinks[7].source}/>
         <KanbanLayout />
         
     </div>
